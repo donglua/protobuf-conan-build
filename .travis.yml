@@ -1,5 +1,6 @@
+os: linux
 language: android
-dist: trusty
+dist: xenial
 sudo: true
 android:
   components:
