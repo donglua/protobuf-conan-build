@@ -8,7 +8,7 @@ android:
     - extra-android-m2repository
 before_install:
 install:
-#  - echo y | sdkmanager "ndk;21.2.6472646"
+  - echo y | sdkmanager "ndk;16.1.4479499"
   - echo y | sdkmanager "cmake;3.10.2.4988404"
     #  - sdkmanager --update
 before_script:
