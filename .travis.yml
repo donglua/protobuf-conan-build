@@ -1,5 +1,6 @@
 language: android
 dist: trusty
+install: ant deps
 sudo: true
 android:
   components:
@@ -7,6 +8,10 @@ android:
     - platform-tools
     - extra-google-m2repository
     - extra-android-m2repository
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 before_install:
 install:
   - echo y | sdkmanager "ndk;16.1.4479499"
