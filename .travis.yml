@@ -1,8 +1,6 @@
 os: linux
 language: android
 dist: xenial
-sudo: true
-install: ant deps
 android:
   components:
     - build-tools-27.0.2
@@ -15,6 +13,8 @@ android:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 before_install:
+  - sudo apt-get update
+  - sudo apt-get -y install ant
 install:
   - echo y | sdkmanager "ndk;16.1.4479499"
 #  - echo y | sdkmanager "cmake;3.10.2.4988404"
