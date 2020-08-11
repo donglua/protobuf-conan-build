@@ -3,7 +3,7 @@ dist: trusty
 sudo: true
 android:
   components:
-    - build-tools-26.0.2
+    - build-tools-27.0.2
     - tools
     - platform-tools
     - extra-google-m2repository
