@@ -1,6 +1,5 @@
 language: android
 dist: trusty
-install: ant deps
 sudo: true
 android:
   components:
@@ -14,8 +13,8 @@ android:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 before_install:
-  - sudo apt-get update
-  - sudo apt-get -y install ant
+  - apt-get update
+  - apt-get -y install ant
 install:
   - echo y | sdkmanager "ndk;16.1.4479499"
 #  - echo y | sdkmanager "cmake;3.10.2.4988404"
