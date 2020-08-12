@@ -24,7 +24,7 @@ before_install:
   - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"	
 
 install:
-  - sudo apt-get install conan
+  - pip install conan
   - echo y | sdkmanager "cmake;3.10.2.4988404"
     #  - sdkmanager --update
 before_script:
