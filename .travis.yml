@@ -13,6 +13,12 @@ android:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 
+cache:
+  directories:
+    - $HOME/.cache/pip
+    - $HOME/android-ndk-r16b
+
+
 before_install:
   - wget https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip
   - unzip android-ndk-r16b-linux-x86_64.zip -d $HOME
@@ -24,6 +30,7 @@ before_install:
   - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"	
 
 install:
+  - pip install --upgrade pip
   - pip install conan
   - echo y | sdkmanager "cmake;3.10.2.4988404"
     #  - sdkmanager --update
