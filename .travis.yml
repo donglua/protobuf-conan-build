@@ -35,7 +35,7 @@ jobs:
         - 'google-gdk-license-.+'
       before_install:
         - wget https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip
-        - unzip android-ndk-r16b-linux-x86_64.zip -d $HOME
+        - echo n | unzip android-ndk-r16b-linux-x86_64.zip -d $HOME
         - export ANDROID_NDK_HOME=$HOME/android-ndk-r16b
         - export NDK_ROOT=$ANDROID_NDK_HOME
         - export PATH=$PATH:$ANDROID_NDK_HOME
