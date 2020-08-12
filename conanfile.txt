@@ -6,3 +6,4 @@ cmake
 
 [options]
 protobuf:shared=False
+protobuf:lite=True
