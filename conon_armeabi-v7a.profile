@@ -7,13 +7,15 @@ arch=armv7
 build_type=Release
 compiler=clang
 compiler.libcxx=c++_shared
-compiler.version=10
+compiler.version=11
 os=Android
 os.api_level=$api_level
 
 [options]
 [env]
-ANDROID_NDK_ROOT=$NDK_ROOT
+CONAN_CMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake
+ANDROID_NDK_ROOT=$ANDROID_NDK_HOME
+PATH=[$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin]
 CHOST=$target_host
 AR=$target_host-ar
 AS=$target_host-as
