@@ -2,11 +2,13 @@ os: linux
 language: android
 dist: xenial
 
+addons:
+  apt:
+    sources:
+      - ppa:deadsnakes/ppa
+    packages:
+        - python3.7
 install:
-  - sudo apt-get install software-properties-common
-  - sudo add-apt-repository ppa:deadsnakes/ppa
-  - sudo apt-get update
-  - sudo apt-get install python3.7
   - pip3.7 install conan
 
 cache:
