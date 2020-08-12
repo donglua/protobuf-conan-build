@@ -33,7 +33,7 @@ before_install:
 
 install:
   - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-  - python3 get-pip.py
+  - python3 get-pip.py --user
   - pip3 install conan
   - pip3 install --upgrade requests
 
