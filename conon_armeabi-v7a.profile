@@ -13,6 +13,7 @@ os.api_level=$api_level
 
 [options]
 [env]
+ANDROID_NDK_ROOT=$NDK_ROOT
 CHOST=$target_host
 AR=$target_host-ar
 AS=$target_host-as
