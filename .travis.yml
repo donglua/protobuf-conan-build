@@ -1,47 +1,36 @@
 os: linux
-language: generic
+language: android
 dist: xenial
 
-stages:
-  - install conan
-  - install ndk
+install:
+  - sudo apt-get install python3.7
+  - pip3.7 install conan
 
 cache:
   directories:
     - $HOME/.cache/pip
 
-jobs:
-  include:
-    - stage: install conan
-      script: echo "install conan"
-      # Keep in mind to overwrite these here
-      language: python
-      python: 3.7
-      install:
-        - pip3.7 install conan
-    - stage: install ndk
-      language: android
-      android:
-      components:
-        - build-tools-27.0.2
-        - tools
-        - platform-tools
-        - extra-google-m2repository
-        - extra-android-m2repository
-      licenses:
-        - 'android-sdk-.+'
-        - 'android-sdk-license-.+'
-        - 'google-gdk-license-.+'
-      before_install:
-        - wget https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip
-        - unzip android-ndk-r16b-linux-x86_64.zip -d $HOME
-        - export ANDROID_NDK_HOME=$HOME/android-ndk-r16b
-        - export NDK_ROOT=$ANDROID_NDK_HOME
-        - export PATH=$PATH:$ANDROID_NDK_HOME
-        - mkdir "$ANDROID_HOME/licenses" || true		
-        - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"		
-        - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"	
-      before_script:
-      script: 
-        - echo $ANDROID_NDK_HOME
-        - conan install conanfile.txt --profile conon_armeabi-v7a.profile --build missing
+android:
+  components:
+    - build-tools-27.0.2
+    - tools
+    - platform-tools
+    - extra-google-m2repository
+    - extra-android-m2repository
+  licenses:
+    - 'android-sdk-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+before_install:
+  - wget https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip
+  - unzip android-ndk-r16b-linux-x86_64.zip -d $HOME
+  - export ANDROID_NDK_HOME=$HOME/android-ndk-r16b
+  - export NDK_ROOT=$ANDROID_NDK_HOME
+  - export PATH=$PATH:$ANDROID_NDK_HOME
+  - mkdir "$ANDROID_HOME/licenses" || true		
+  - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"		
+  - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"	
+before_script:
+script: 
+  - echo $ANDROID_NDK_HOME
+  - conan install conanfile.txt --profile conon_armeabi-v7a.profile --build missing
