@@ -1,6 +1,8 @@
 os: linux
 language: android
 dist: xenial
+python:
+  - "3.7
 android:
   components:
     - build-tools-27.0.2
